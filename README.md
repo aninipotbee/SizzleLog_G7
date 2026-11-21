@@ -28,7 +28,7 @@
 * **Close Stock (`Leftovers`)**:
   * Calculates remaining stock (`Prepared − Sold`) per product and lets the owner close all open items in one click or record/undo individual physical counts with variance (`Balanced`, `Short`, `Extra`) and notes.
 * **Expenses (`Expenses`)**:
-  * Shows running totals for Today, This Month, All Time, and entry count[cite: 2].
+  * Shows running totals for Today, This Month, All Time, and entry count.
   * Log new expenses with category, cost (`₱`), date, and optional notes; view a category reference guide; filter the expense log; inspect spending share by category; and delete mistaken entries (owner).
 * **Products & User Management (Owner)**:
   * **Products**: Add, search, filter, edit, or safely delete (only if never prepared) products and reference leftover figures.
