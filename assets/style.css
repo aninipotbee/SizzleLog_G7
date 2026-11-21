@@ -1,0 +1,819 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* =========================================================
+   SIZZLELOG THEME: WINE / CORAL DASHBOARD
+   ☆*: .｡. o(≧▽≦)o .｡.:*☆
+   ========================================================= */
+
+:root {
+    --red: #E5484D;
+    --red-hot: #F0675F;
+    --red-deep: #9E2A31;
+    --wine: #4A1D21;
+    --burgundy: #6B2B30;
+    --black: #1E0A0C;
+    --glass: rgba(30, 10, 12, 0.58);
+    --glass-strong: rgba(26, 8, 10, 0.82);
+    --line: rgba(255, 255, 255, 0.07);
+    --ash: #F5E9E6;
+    --smoke: #C7A3A0;
+    --white: #FFFFFF;
+    --display: 'Poppins', 'Segoe UI', sans-serif;
+    --body: 'Poppins', 'Segoe UI', sans-serif;
+    --r-lg: 28px;
+    --r-md: 20px;
+    --r-sm: 14px;
+
+    --sheen: radial-gradient(70% 170% at 64% 45%, rgba(255, 255, 255, 0.17), transparent 70%);
+    --glass-fill: linear-gradient(135deg, rgba(150, 40, 48, 0.30), rgba(52, 14, 18, 0.55));
+    --glass-edge: 1px solid rgba(255, 255, 255, 0.18);
+    --glass-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -8px 16px rgba(0, 0, 0, 0.18), 0 8px 22px rgba(0, 0, 0, 0.32);
+
+    --hero-img: none;
+}
+
+/* ------------------------- BASE ------------------------- */
+
+html, body, .stApp, [data-testid="stAppViewContainer"] {
+    font-family: var(--body);
+    color: var(--ash);
+}
+
+.stApp {
+    background:
+        radial-gradient(70% 55% at 8% 0%, rgba(150, 62, 68, 0.75) 0%, transparent 65%),
+        radial-gradient(60% 50% at 100% 100%, rgba(181, 87, 92, 0.38) 0%, transparent 65%),
+        linear-gradient(160deg, #5a2328 0%, #3a1519 55%, #2a0f12 100%);
+}
+
+header[data-testid="stHeader"] { background: transparent; }
+#MainMenu, footer { visibility: hidden; }
+
+.block-container { padding-top: 2.2rem; padding-bottom: 4rem; max-width: 1280px; }
+
+::selection { background: var(--red); color: var(--white); }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.16); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--red); }
+
+:focus-visible { outline: 2px solid var(--red-hot) !important; outline-offset: 2px; }
+
+hr { border-color: var(--line) !important; }
+
+/* ------------------------- TYPOGRAPHY ------------------------- */
+
+h1, h2, h3, h4 {
+    font-family: var(--display) !important;
+    color: var(--white) !important;
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-size: clamp(1.9rem, 3.6vw, 2.5rem) !important;
+    font-weight: 600 !important;
+    line-height: 1.15 !important;
+    padding-bottom: 0.2rem !important;
+}
+
+h2, h3 {
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+    margin-top: 1.6rem;
+    padding: 0 0 4px !important;
+}
+
+[data-testid="stCaptionContainer"], .stCaption, small {
+    color: var(--smoke) !important;
+    font-size: 0.86rem;
+}
+
+label p, [data-testid="stWidgetLabel"] p {
+    color: var(--ash) !important;
+    font-weight: 500;
+    font-size: 0.86rem;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--smoke);
+    margin-bottom: 10px;
+}
+
+.eyebrow::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 0 0 0 4px rgba(229, 72, 77, 0.22);
+}
+
+/* ------------------------- SIDEBAR (floating rail) ------------------------- */
+
+[data-testid="stSidebar"] { background: transparent; border: none; }
+
+[data-testid="stSidebar"] > div:first-child,
+[data-testid="stSidebarContent"] {
+    background:
+        radial-gradient(90% 26% at 15% 22%, rgba(229, 72, 77, 0.32), transparent 70%),
+        radial-gradient(80% 26% at 90% 62%, rgba(190, 70, 76, 0.24), transparent 70%),
+        linear-gradient(190deg, rgba(48, 16, 20, 0.97), rgba(24, 7, 9, 0.98));
+    margin: 14px 0 14px 14px;
+    height: calc(100vh - 28px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 32px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+    overflow-y: auto;
+}
+
+[data-testid="stSidebar"] * { color: var(--ash); }
+[data-testid="stSidebar"] hr { margin: 14px 0; }
+
+/* brand */
+.side-brand { padding: 14px 6px 18px; }
+
+.side-brand-name {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    color: var(--white);
+}
+
+.side-logo {
+    width: auto;
+    display: block;
+    padding: 6px;
+    box-sizing: content-box;
+    object-fit: contain;
+    border-radius: 14px;
+    background: var(--sheen), rgba(255, 255, 255, 0.08);
+    border: var(--glass-edge);
+    box-shadow: var(--glass-shadow);
+}
+
+.side-brand-tag {
+    margin-top: 10px;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    color: var(--smoke);
+}
+
+/* signed-in user */
+.side-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 20px 8px 8px;
+    margin-top: 4px;
+    border-radius: 999px;
+    background: var(--sheen), var(--glass-fill);
+    border: var(--glass-edge);
+    box-shadow: var(--glass-shadow);
+}
+
+.side-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    background: linear-gradient(145deg, var(--red-hot), var(--red-deep));
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 0 3px rgba(229, 72, 77, 0.2);
+}
+
+.side-user-name { font-size: 0.9rem; font-weight: 600; color: var(--white); line-height: 1.2; }
+.side-user-role { font-size: 10px; font-weight: 500; letter-spacing: 0.16em; color: var(--smoke); margin-top: 2px; }
+
+/* navigation: frosted-glass capsules. Every page is a button; the active one is "primary". */
+.side-nav-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    color: var(--smoke);
+    margin: 18px 8px 8px;
+}
+
+[data-testid="stSidebar"] [data-testid^="stBaseButton"] {
+    justify-content: flex-start;
+    gap: 12px;
+    width: 100%;
+    min-height: 46px;
+    padding: 7px 22px 7px 8px;
+    border-radius: 999px;
+    text-align: left;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.82);
+    background: var(--sheen), var(--glass-fill);
+    border: var(--glass-edge);
+    box-shadow: var(--glass-shadow);
+}
+
+[data-testid="stSidebar"] [data-testid^="stBaseButton"] p {
+    margin: 0;
+    font: inherit;
+    color: inherit !important;
+    text-align: left;
+}
+
+[data-testid="stSidebar"] [data-testid^="stBaseButton"]:hover:not(:disabled) {
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.36);
+    background:
+        radial-gradient(70% 170% at 64% 45%, rgba(255, 255, 255, 0.26), transparent 70%),
+        linear-gradient(135deg, rgba(180, 52, 60, 0.42), rgba(66, 18, 23, 0.55));
+}
+
+/* round glass bubble behind each icon, like the orb in the reference */
+[data-testid="stSidebar"] [data-testid^="stBaseButton"] [data-testid="stIconMaterial"] {
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 18px;
+    color: var(--white);
+    background: radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.06) 72%);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* active page: red glass with a white sheen */
+[data-testid="stSidebar"] [data-testid^="stBaseButton-primary"] {
+    color: var(--white);
+    font-weight: 600;
+    background:
+        radial-gradient(70% 180% at 70% 40%, rgba(255, 255, 255, 0.30), transparent 70%),
+        linear-gradient(135deg, #e5484d, #9e2a31);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 10px 26px rgba(229, 72, 77, 0.45);
+}
+
+[data-testid="stSidebar"] [data-testid^="stBaseButton-primary"]:hover:not(:disabled) {
+    background:
+        radial-gradient(70% 180% at 70% 40%, rgba(255, 255, 255, 0.38), transparent 70%),
+        linear-gradient(135deg, #f0675f, #b0353c);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 12px 30px rgba(229, 72, 77, 0.55);
+}
+
+/* ------------------------- HERO (Overview) ------------------------- */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 250px;
+    padding: 34px 38px;
+    margin-bottom: 28px;
+    border-radius: 30px;
+    background: linear-gradient(110deg, #b0353c 0%, #d34f4e 52%, #e9705f 100%);
+    box-shadow: 0 26px 54px rgba(0, 0, 0, 0.38);
+}
+
+/* grill photo fades in from the right, like the character art in the reference */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: 58%;
+    background: var(--hero-img) center / cover no-repeat;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 60%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 60%);
+    opacity: 0.92;
+}
+
+.hero > * { position: relative; z-index: 1; max-width: 58%; }
+
+.hero-greet { font-size: 0.95rem; font-weight: 400; color: rgba(255, 255, 255, 0.85); margin: 0 0 12px; }
+.hero-greet strong { color: var(--white); font-weight: 700; }
+
+.hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #6a1d22;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+}
+
+.hero h1 {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 0 4px !important;
+    font-size: clamp(2.2rem, 5vw, 3.4rem) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.04em;
+    color: var(--white) !important;
+}
+
+.hero-logo { width: auto; display: block; }
+.receipt-logo { width: auto; vertical-align: -4px; margin-right: 4px; }
+
+.hero p { color: rgba(255, 255, 255, 0.9); margin: 0; font-size: 0.92rem; }
+
+.hero-status {
+    display: inline-block;
+    margin-top: 16px !important;
+    padding: 10px 16px;
+    border-radius: 16px;
+    background: rgba(30, 8, 10, 0.34);
+    font-size: 0.84rem !important;
+    line-height: 1.5;
+}
+
+.hero-status strong { color: var(--white); }
+
+/* ------------------------- METRICS ------------------------- */
+
+[data-testid="stMetric"] {
+    background:
+        radial-gradient(120% 120% at 100% 0%, rgba(229, 72, 77, 0.22), transparent 55%),
+        var(--glass);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 20px 22px;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25);
+}
+
+[data-testid="stMetricLabel"] p {
+    color: var(--smoke) !important;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+[data-testid="stMetricValue"] {
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 1.15;
+    color: var(--white);
+}
+
+/* ------------------------- BUTTONS ------------------------- */
+
+.stButton > button,
+[data-testid^="stBaseButton"] {
+    font-family: var(--body);
+    font-size: 0.86rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border-radius: 999px;
+    padding: 0.55rem 1.3rem;
+    transition: background 0.08s linear, box-shadow 0.08s linear;
+}
+
+[data-testid^="stBaseButton-primary"] {
+    background: linear-gradient(180deg, var(--red-hot), var(--red));
+    border: none;
+    color: var(--white);
+    box-shadow: 0 8px 20px rgba(229, 72, 77, 0.35);
+}
+
+[data-testid^="stBaseButton-primary"]:hover:not(:disabled) {
+    background: linear-gradient(180deg, #F57A72, var(--red-hot));
+    box-shadow: 0 10px 26px rgba(229, 72, 77, 0.5);
+    color: var(--white);
+}
+
+
+[data-testid^="stBaseButton-primary"]:disabled {
+    background: rgba(255, 255, 255, 0.07);
+    color: rgba(255, 255, 255, 0.35);
+    box-shadow: none;
+}
+
+[data-testid^="stBaseButton-secondary"] {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--ash);
+}
+
+[data-testid^="stBaseButton-secondary"]:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.24);
+    color: var(--white);
+}
+
+/* ------------------------- INPUTS ------------------------- */
+
+[data-baseweb="input"],
+[data-baseweb="base-input"],
+[data-baseweb="select"] > div,
+[data-baseweb="textarea"],
+[data-testid="stDateInput"] [data-baseweb="input"] {
+    background: rgba(20, 6, 8, 0.55) !important;
+    border-color: rgba(255, 255, 255, 0.09) !important;
+    border-radius: var(--r-sm) !important;
+}
+
+[data-baseweb="input"] input,
+[data-baseweb="textarea"] textarea,
+[data-baseweb="select"] input,
+[data-baseweb="select"] div[value] {
+    color: var(--ash) !important;
+    -webkit-text-fill-color: var(--ash);
+}
+
+[data-baseweb="input"]:focus-within,
+[data-baseweb="textarea"]:focus-within,
+[data-baseweb="select"]:focus-within > div {
+    border-color: var(--red-hot) !important;
+    box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.25) !important;
+}
+
+[data-testid="stNumberInput"] button {
+    background: rgba(255, 255, 255, 0.07) !important;
+    color: var(--ash) !important;
+    border-color: transparent !important;
+}
+
+[data-testid="stNumberInput"] button:hover { background: var(--red) !important; }
+
+[data-baseweb="popover"] ul,
+[data-baseweb="menu"] {
+    background: #2a0f12 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--r-sm);
+}
+
+[data-baseweb="popover"] li:hover,
+[data-baseweb="menu"] li:hover { background: rgba(229, 72, 77, 0.28) !important; }
+
+[data-testid="stToggle"] input:checked + div,
+[data-testid="stToggle"] [aria-checked="true"] { background: var(--red) !important; }
+
+[data-testid="stTextInputRootElement"],
+[data-testid="stNumberInputContainer"],
+[data-testid="stTextAreaRootElement"],
+[data-testid="stDateInputField"],
+[data-baseweb="select"] > div,
+[data-baseweb="input"] > div,
+[data-baseweb="textarea"] > div {
+    background: rgba(20, 6, 8, 0.55) !important;
+    border-color: rgba(255, 255, 255, 0.09) !important;
+    border-radius: var(--r-sm) !important;
+}
+
+[data-baseweb="input"] input,
+[data-baseweb="base-input"] input,
+[data-baseweb="textarea"] textarea,
+[data-testid="stTextInput"] input,
+[data-testid="stNumberInput"] input,
+[data-testid="stTextArea"] textarea,
+[data-testid="stDateInput"] input {
+    background: transparent !important;
+    color: var(--ash) !important;
+    -webkit-text-fill-color: var(--ash);
+    caret-color: var(--red-hot);
+}
+
+[data-baseweb="select"] div,
+[data-baseweb="select"] span { color: var(--ash); }
+
+[data-testid="stAlert"],
+[data-testid="stAlert"] > div,
+[data-baseweb="notification"] {
+    background: var(--glass) !important;
+    color: var(--ash) !important;
+    border-radius: var(--r-sm) !important;
+}
+
+[data-testid="stAlert"] p,
+[data-testid="stAlert"] li { color: var(--ash) !important; }
+
+/* ------------------------- FORMS, EXPANDERS, TABLES ------------------------- */
+
+[data-testid="stForm"] {
+    background: var(--glass);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 22px 24px;
+}
+
+[data-testid="stExpander"] {
+    background: var(--glass);
+    border: 1px solid var(--line) !important;
+    border-radius: var(--r-md);
+    overflow: hidden;
+}
+
+[data-testid="stExpander"] summary { padding: 13px 18px; }
+[data-testid="stExpander"] summary:hover { background: rgba(229, 72, 77, 0.12); }
+[data-testid="stExpander"] summary p { font-weight: 500; color: var(--white); }
+[data-testid="stExpander"] details[open] > summary { border-bottom: 1px solid var(--line); }
+
+[data-testid="stDataFrame"] {
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+}
+
+[data-testid="stAlert"] {
+    background: var(--glass);
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    color: var(--ash);
+}
+
+[data-testid="stVerticalBlockBorderWrapper"] { border-radius: var(--r-md); }
+
+/* ------------------------- POS PRODUCT CARDS ------------------------- */
+
+.sales-product-card {
+    position: relative;
+    background:
+        radial-gradient(110% 90% at 100% 0%, rgba(229, 72, 77, 0.25), transparent 60%),
+        var(--glass-strong);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 20px 22px 18px;
+    margin-bottom: 10px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32);
+    transition: border-color 0.08s linear;
+}
+
+.sales-product-card:hover { border-color: rgba(240, 103, 95, 0.45); }
+
+.sales-product-name { font-size: 1.1rem; font-weight: 600; line-height: 1.25; color: var(--white); }
+
+.sales-product-price { font-size: 1.7rem; font-weight: 700; color: var(--red-hot); margin: 6px 0 2px; }
+
+.sales-product-stock { font-size: 12.5px; color: var(--smoke); }
+
+.sales-product-cart {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 3px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #FFD2D0;
+    background: rgba(229, 72, 77, 0.22);
+    border-radius: 999px;
+}
+
+/* ------------------------- RESPONSIVE ------------------------- */
+
+@media (max-width: 900px) {
+    .hero > * { max-width: 100%; }
+    .hero::before { width: 100%; opacity: 0.28; }
+}
+
+@media (max-width: 640px) {
+    .hero { padding: 26px 22px; }
+    [data-testid="stMetricValue"] { font-size: 1.7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* =========================================================
+   LOGIN SCREEN: frosted-glass card with underline inputs para nice
+   ========================================================= */
+
+[data-testid="stForm"]:has(input[type="password"]) {
+    max-width: 420px;
+    margin: 5vh auto 0 !important;
+    padding: 38px 36px 26px !important;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0.07)) !important;
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.30) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+}
+
+.login-head { text-align: center; margin-bottom: 4px; }
+
+.login-logo-img {
+    display: block;
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 16px;
+    object-fit: contain;
+    padding: 10px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.login-title {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em !important;
+    color: var(--white) !important;
+}
+
+.login-sub { margin: 6px 0 0; color: rgba(255, 255, 255, 0.78); font-size: 0.85rem; }
+
+.login-foot {
+    text-align: center;
+    margin-top: 6px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.78rem;
+    line-height: 1.7;
+}
+
+[data-testid="stForm"]:has(input[type="password"]) [data-baseweb="input"] {
+    position: relative;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.6) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+[data-testid="stForm"]:has(input[type="password"]) [data-baseweb="base-input"],
+[data-testid="stForm"]:has(input[type="password"]) [data-baseweb="input"] > div,
+[data-testid="stForm"]:has(input[type="password"]) [data-testid="stTextInputRootElement"] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+[data-testid="stForm"]:has(input[type="password"]) [data-baseweb="input"]:focus-within {
+    border-bottom: 2px solid var(--white) !important;
+    box-shadow: none !important;
+}
+
+[data-testid="stForm"]:has(input[type="password"]) input {
+    background: transparent !important;
+    color: var(--white) !important;
+    -webkit-text-fill-color: var(--white);
+    padding-left: 0 !important;
+    font-size: 0.95rem;
+}
+
+[data-testid="stForm"]:has(input[type="password"]) input::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.5);
+}
+
+[data-testid="stForm"]:has(input[type="password"]) input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    -webkit-text-fill-color: var(--white) !important;
+    transition: background-color 99999s ease-out;
+}
+
+[data-testid="stForm"]:has(input[type="password"]) label p {
+    color: rgba(255, 255, 255, 0.88) !important;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+}
+
+[data-testid="stForm"]:has(input[type="password"]) [data-baseweb="input"] button {
+    background: transparent !important;
+    color: var(--white) !important;
+}
+
+/* envelope icon on the email field (the password field has its own eye toggle) */
+[data-testid="stForm"]:has(input[type="password"]) [data-testid="stTextInput"]:not(:has(input[type="password"])) [data-baseweb="input"]::after {
+    content: "";
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    transform: translateY(-50%);
+    background: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='14' rx='2'/%3E%3Cpath d='m3 7 9 6 9-6'/%3E%3C/svg%3E") center / contain no-repeat;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+[data-testid="stForm"]:has(input[type="password"]) [data-testid^="stBaseButton-primary"] {
+    min-height: 46px;
+    margin-top: 6px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+
+/* =========================================================
+   PREPARE STOCK: product rows with the quantity beside each item
+   ========================================================= */
+
+.prep-head {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: var(--smoke);
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--line);
+}
+
+.prep-cat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 18px 0 4px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #FF9C98;
+}
+
+.prep-cat::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+.prep-name { font-weight: 600; color: var(--white); line-height: 1.25; }
+.prep-meta { font-size: 12px; color: var(--smoke); }
+
+.prep-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.prep-tag.ready  { color: #FFD2D0; background: rgba(229, 72, 77, 0.24); }
+.prep-tag.none   { color: var(--smoke); background: rgba(255, 255, 255, 0.07); }
+.prep-tag.closed { color: var(--ash); background: rgba(255, 255, 255, 0.14); }
+
+/* =========================================================
+   SIDEBAR NAV LAYOUT (same grid as the user card above it)
+   - icon orb: pinned 8px from the left edge, vertically centred
+   - label:    starts 58px from the left edge, left-aligned
+   Positioning is explicit, so it does not depend on how
+   Streamlit nests the button's inner elements.o(*￣▽￣*)ブ
+   ========================================================= */
+
+[data-testid="stSidebar"] [data-testid^="stBaseButton"] {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    width: 100% !important;
+    min-height: 54px !important;
+    padding: 0 20px 0 58px !important;
+    text-align: left !important;
+    overflow: hidden;
+}
+
+[data-testid="stSidebar"] [data-testid^="stBaseButton"] > div,
+[data-testid="stSidebar"] [data-testid^="stBaseButton"] [data-testid="stMarkdownContainer"] {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex: 1 1 auto !important;
+    width: auto !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+[data-testid="stSidebar"] [data-testid^="stBaseButton"] p {
+    margin: 0 !important;
+    width: auto !important;
+    line-height: 1.2;
+    text-align: left !important;
+    white-space: nowrap;
+}
+
+[data-testid="stSidebar"] [data-testid^="stBaseButton"] [data-testid="stIconMaterial"] {
+    position: absolute !important;
+    left: 8px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    flex: none !important;
+    width: 38px !important;
+    height: 38px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 19px !important;
+    line-height: 1 !important;
+}
