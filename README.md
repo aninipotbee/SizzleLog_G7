@@ -1,4 +1,4 @@
-# SizzleLog — BBQ Business Management System
+# SizzleLog — BBQ Business Management System 
 
 **SizzleLog** is a Streamlit-based point-of-sale (POS) and daily operations management web app designed for a barbecue business, backed by **Supabase** for authentication and database storage. It supports role-based access for **Owners** and **Cashiers** with a custom wine/coral frosted-glass dashboard theme[cite: 1, 2].
 
