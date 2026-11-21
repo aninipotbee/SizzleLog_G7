@@ -29,12 +29,12 @@
   * Calculates remaining stock (`Prepared − Sold`) per product and lets the owner close all open items in one click or record/undo individual physical counts with variance (`Balanced`, `Short`, `Extra`) and notes.
 * **Expenses (`Expenses`)**:
   * Shows running totals for Today, This Month, All Time, and entry count[cite: 2].
-  * Log new expenses with category, cost (`₱`), date, and optional notes; view a category reference guide; filter the expense log; inspect spending share by category; and delete mistaken entries (owner)[cite: 2].
+  * Log new expenses with category, cost (`₱`), date, and optional notes; view a category reference guide; filter the expense log; inspect spending share by category; and delete mistaken entries (owner).
 * **Products & User Management (Owner)**:
-  * **Products**: Add, search, filter, edit, or safely delete (only if never prepared) products and reference leftover figures[cite: 2].
-  * **Users**: View `app_user` profiles, link existing Supabase Auth user UUIDs with a role (`cashier` or `owner`), toggle account active status, or remove unused profiles[cite: 2].
+  * **Products**: Add, search, filter, edit, or safely delete (only if never prepared) products and reference leftover figures.
+  * **Users**: View `app_user` profiles, link existing Supabase Auth user UUIDs with a role (`cashier` or `owner`), toggle account active status, or remove unused profiles.
 * **My Transactions (Cashier)**:
-  * View personal recorded sales history and expand individual receipts for item-level totals[cite: 2].
+  * View personal recorded sales history and expand individual receipts for item-level totals.
 
 ---
 
